@@ -1,0 +1,1 @@
+install_package "ruby-3.2.0" "https://ei-shiroma-test-ruby.s3.ap-northeast-1.amazonaws.com/v3.2.0/ruby-3.2.0-linux-x86_64.tar.gz" copy
