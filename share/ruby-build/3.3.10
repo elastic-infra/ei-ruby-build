@@ -1,0 +1,14 @@
+# Detect distribution and version.
+if [ -f /etc/os-release ]; then
+  . /etc/os-release
+  OS_DISTRO=$ID
+  OS_VERSION=$VERSION_ID
+else
+  echo "Cannot determine distribution."
+  exit 1
+fi
+
+# Detect architecture
+ARCH=$(uname -m)
+
+install_package "ruby-3.3.10" "https://ruby.elastic-infra.com/${OS_DISTRO}/${OS_VERSION}/$ARCH/ruby-3.3.10.tar.gz" copy
