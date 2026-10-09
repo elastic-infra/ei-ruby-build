@@ -648,6 +648,27 @@ build_package_warn_unsupported() {
   } >&2
 }
 
+build_package_warn_bundled_openssl() {
+  local package_name="$1"
+
+  { echo
+    echo "WARNING: this prebuilt $package_name bundles its own OpenSSL 3.0.x instead of using the system OpenSSL."
+    echo "Libraries linked against the system OpenSSL (e.g. libcurl used by ethon/typhoeus) may fail to load"
+    echo "in the same process, and the bundled OpenSSL does not receive security updates from the OS."
+    echo
+  } >&2
+}
+
+build_package_warn_requires_newer_openssl() {
+  local package_name="$1"
+
+  { echo
+    echo "WARNING: this prebuilt $package_name was built against OpenSSL 3.4 or later."
+    echo "On systems with an older OpenSSL (e.g. OpenSSL 3.2), \`require \"openssl\"\` fails to load."
+    echo
+  } >&2
+}
+
 build_package_standard() {
   local package_name="$1"
 
