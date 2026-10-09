@@ -11,4 +11,4 @@ fi
 # Detect architecture
 ARCH=$(uname -m)
 
-install_package "ruby-3.3.6" "https://ruby.elastic-infra.com/${OS_DISTRO}/${OS_VERSION}/$ARCH/ruby-3.3.6.tar.gz" copy
+install_package "ruby-3.3.6" "https://ruby.elastic-infra.com/${OS_DISTRO}/${OS_VERSION}/$ARCH/ruby-3.3.6.tar.gz" warn_requires_newer_openssl copy
